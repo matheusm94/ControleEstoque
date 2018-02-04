@@ -1,0 +1,26 @@
+CREATE TABLE Cliente
+(
+id INT(8) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(20) NOT NULL,
+email VARCHAR(20),
+telefone VARCHAR(20)
+);
+
+ 
+
+CREATE TABLE Produto
+(
+id INT(8)NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(20)NOT NULL,
+descricao VARCHAR(20),
+preco FLOAT(20)
+);
+
+CREATE TABLE Pedido
+(
+id_pedido INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+id_cliente INT NOT NULL,
+id_produto INT NOT NULL,
+CONSTRAINT FK_id_cliente FOREIGN KEY (id_cliente) REFERENCES Cliente(id),
+CONSTRAINT FK_id_produto FOREIGN KEY (id_produto) REFERENCES Produto(id)
+);
